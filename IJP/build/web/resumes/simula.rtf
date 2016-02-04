@@ -1,0 +1,232 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}}
+{\*\generator Msftedit 5.41.15.1515;}\viewkind4\uc1\pard\qc\b\f0\fs32 Simula\par
+\pard\b0\par
+Paradigm(s)\tab Object-oriented\par
+Appeared in\tab 1967\par
+Designed by\tab Ole-Johan Dahl, Kristen Nygaard\par
+Influenced by\tab ALGOL 60\par
+Influenced\tab Object-oriented programming languages\par
+\par
+Simula is a name for two simulation programming languages, Simula I and Simula 67, developed in the 1960s at the Norwegian Computing Center in Oslo, by Ole-Johan Dahl and Kristen Nygaard. Syntactically, it is a fairly faithful superset of ALGOL 60. [1]:1.3.1\par
+Simula 67 introduced objects,[1]:2, 5.3 classes,[1]:1.3.3, 2 subclasses,[1]:2.2.1 virtual methods,[1]:2.2.3 coroutines,[1]:9.2 discrete event simulation,[1]:14.2 and features garbage collection.[1]:9.1\par
+Simula is considered the first object-oriented programming language. As its name implies, Simula was designed for doing simulations, and the needs of that domain provided the framework for many of the features of object-oriented languages today.\par
+Simula has been used in a wide range of applications such as simulating VLSI designs, process modeling, protocols, algorithms, and other applications such as typesetting, computer graphics, and education. The influence of Simula is often understated, and Simula-type objects are reimplemented in C++, Java and C#. The creator of C++, Bjarne Stroustrup, has acknowledged that Simula 67 was the greatest influence on him to develop C++, to bring the kind of productivity enhancements offered by Simula to the raw computational speed offered by lower level languages like BCPL.\par
+\par
+\b Sample code\par
+\par
+\b0 [edit]Minimal program\par
+The empty computer file is the minimal program in Simula, measured by the size of the source code. It consists of one thing only; a dummy statement.\par
+However, the minimal program is more conveniently represented as an empty block:\par
+Begin\par
+End;\par
+It begins executing and immediately terminates. The language does not have any return value from the program itself.\par
+\par
+[edit]Classic Hello world\par
+An example of a Hello world program in Simula:\par
+Begin\par
+   OutText ("Hello World!");\par
+   Outimage;\par
+End;\par
+\par
+Simula is case-insensitive.\par
+\par
+\par
+\b SIMULA - BASIC FACTS\par
+\b0 Simula I = Process oriented discrete simulation language based on Algol 60. (1964 - 1965) Simulation language.\par
+\par
+Simula 67 = General object oriented language with system classes supporting linked lists (the system class Simset) and discrete process oriented simulation (the system class Simulation). (1967 - 1971) Simple universal language.\par
+Simula = Simula 67 (The number is not used any more, because Simula I has not been used for a very long time).\par
+\par
+\par
+\par
+Figure 1: Main parts and interface lines in the Simula environment.\par
+\par
+\par
+\b SIMULA DATA TYPES\par
+\b0 Simula contains all common facilities of high level third generation languages. That's why the next two chapters are very brief summaries, text being the only exception.\par
+\par
+\b Value Types\par
+\b0\par
+Integer    Short Integer\par
+Real    Long Real\par
+Boolean    Character\par
+\par
+\b Methods:\par
+\par
+\b0 Boolean Procedure Constant; (True if constant)\par
+Text Procedure Main; (Main string - the text is a part of Main)\par
+Integer Procedure Start; (Starting position in Main)\par
+Integer Procedure Length; (Number of characters)\par
+Integer Procedure Pos; (Current position)\par
+Procedure SetPos(i); Integer i; (Changing position)\par
+Character Procedure GetChar; (Character from Pos)\par
+Procedure PutChar(c); Character c; (Storing character to Pos)\par
+Text Procedure Sub(i, n); Integer i,n; (Substring at i of length n)\par
+\par
+\par
+\b Editing methods\b0 :\par
+\par
+Procedure PutInt(i); Integer i; (Writes integer value)\par
+Procedure PutFix(i, n); Integer i,n; (Writes decimal value)\par
+Procedure PutReal(r, n); Long Real r; Integer n; (Writes in scientific format)\par
+\par
+\b Arrays\par
+\b0\par
+ Examples of arrays declared in blocks (n, m, a, b are global variables):\par
+\par
+  Integer Array MyList (1:100);\par
+  Array Matrix (1:n, 1:m); (Implicit type is real)\par
+  \par
+\par
+\b SIMULA STATEMENTS\par
+\par
+Simple statements\par
+\par
+\b0 Assignment  :=   Examples:  X := If a>b Then a Else b ;  X:=Y:=0; ( ** available )\par
+\par
+Reference Assignment  :-   Examples:  Queue :- New Head;   T :- Blanks(80);\par
+\par
+\b\par
+Structured statements\par
+\par
+\b0 Begin ... End;\par
+\par
+If ... Then ... ; If ... Then ... Else ... ;\par
+\par
+Switch  Example:\par
+\par
+ \par
+Switch Target := L1, L2, L3, ... ;\par
+\par
+Goto Target( Index_expression );\par
+ \par
+  L1: ...\par
+\par
+  L2: ...\par
+ \par
+While ... do ... ;\par
+\par
+For  (very general)  Example:\par
+\par
+ \par
+Begin\par
+   Integer i;\par
+   For i:= 1, 13, 20 step 10 until 40, 70, i+1 while i lt 76,\par
+          100 step 50 until 250, 1000, 1500 do  OutInt(i,5);\par
+End;\par
+Output: 1 13 20 30 40 70 71 72 73 74 75 100 150 200 250 1000 1500\par
+\par
+\b  Class\par
+\b0 Simula has classes in very much the same way as e.g. Java later adopted. Their syntactic structure is as follows:\par
+class C(\'85); ! Formal parameters within the parenthesis ;\par
+begin\par
+\'85\par
+end;\par
+\par
+Thus, Simula uses \ldblquote begin \'85 end;\rdblquote  in the same way as \ldblquote\{ \'85 \}\rdblquote  is used e.g. in Java.More about parameters and other details around classes is given below. As is seen, comments in Simula start with \ldblquote !\rdblquote  and end at the first \ldblquote ;\rdblquote .\par
+\par
+\b Class Rectangle (Width, Height); Real Width, Height;\par
+                           ! Class with two parameters;\par
+ Begin\par
+    Real Area, Perimeter;  ! Attributes;\par
+\par
+    Procedure Update;      ! Methods (Can be Virtual);\par
+    Begin\par
+      Area := Width * Height;\par
+      Perimeter := 2*(Width + Height)\par
+    End of Update;\par
+\par
+    Boolean Procedure IsSquare;\par
+      IsSquare := Width=Height;\par
+\par
+    Update;                ! Life of rectangle started at creation;\par
+    OutText("Rectangle created: "); OutFix(Width,2,6);\par
+    OutFix(Height,2,6); OutImage\par
+ End of Rectangle;\par
+ \par
+\b0\par
+\b Prefix classes and superclasses\par
+\b0 The word prefix is used in Simula in a way that most closely corresponds to \ldblquote super\rdblquote  in e.g. Java, and it stems from the special syntax used in Simula where the name of the superclass is given as a \i prefix \i0 to the class declaration. Thus, the following Simula class declaration:\par
+A class B; begin \'85 end;\par
+\par
+corresponds to the following Java declaration:\par
+\par
+class B extends A \{ \'85 \}\par
+\par
+Thus we e.g. have the following correspondences:\par
+o Prefix class = super class = base class\par
+o Multiple prefixing = multiple inheritance (but this is not offered in Simula)\par
+\par
+\par
+\par
+Prefixed block\par
+This is a special variation of the usage described above. In Simula, classes within classes are allowed to any depth, and one is encouraged to use classes with local classes to implement concepts that naturally comprise more than one class. Thus the concept \i Graph \i0 (in fact, \i directed \i0 graph, as the edge has a \i from \i0 and a \i to \i0 end) can in Simula be described e.g. as follows (where only some crucial variables are mentoned):\par
+\par
+\b class Graph;\par
+begin\par
+class Node; begin\par
+ref(Edge) firstEdgeOut; \'85 ! The first in a list of outgoing edges ;\par
+end;\par
+class Edge; begin\par
+ref(Node) from, to;\par
+ref(Edge) nextEdgeOut; \'85 ! The next in the list of outgoing edges;\par
+end;\par
+end;\par
+\b0\par
+When we want to use these classes we can \i prefix a block\i0 , usually the outermost, with the name of the outer class Graph. This has the effect that that block acts as if it is the body of a subclass of Graph, so that all the declarations inside class Graph become directly available in the block.\par
+\par
+\b Graph begin\par
+Node class LargeNode; begin integer size; \'85 end;\par
+ref(LargeNode) rLN;\par
+rLN :- new LargeNode; ! More about \ldblquote reference assignments\rdblquote  below ;\par
+rLN.size := 12345;\par
+end;\par
+\par
+\b0\par
+\b ref(C) a, b;\par
+\b0 As shown above, Simula uses \ldblquote\b ref(C)\rdblquote  \b0 to indicate that you use class \b C \b0 as a type. Thus \ldblquote ref(C) a, b;\rdblquote  corresponds to what is written \ldblquote C a, b;\rdblquote  in Java. For the basic value types (boolean, integer, real etc.), Simula uses the same syntax as Java (except that Simula does not allow explicit initialization). The \ldblquote no reference\rdblquote  value is in Simula written: \b none\b0 .\par
+\par
+\b Boolean operators\par
+\b0 In Simula the following boolean operators:\par
+For boolean values: \i and, or, not\par
+\i0 For numeric and text values: =, <>, <=, >=, <, >\par
+For references (also text references): ==, =/=\par
+\par
+\b Simula uses the keyword \ldblquote procedure\rdblquote .\b0\par
+For the standard concept \i method/function/procedure \i0 Simula uses the word \i procedure \i0 in all cases, even when a result is returned. Note that procedures can be declared anywhere in a program, not only at the outermost level within classes. This includes the outermost level of the program (global procedure), and inside another procedure.\par
+\par
+Examples of procedure declarations:\par
+\b procedure action(a, b); integer a; ref(C) b; begin \'85 end;\par
+boolean procedure isGood(a, b); ref(C) a, b; begin \'85 isGood:= false; \'85 end;\par
+\par
+\b0 Simula allows procedures to have procedure parameters (\ldblquote formal procedures\rdblquote ). Also a variant of \ldblquote by variable\rdblquote  transmission is offered, which is called \ldblquote by name\rdblquote  transmission (an inheritance from the language Algol 60). None of these modes are allowed for classes. If a procedure doesn\rquote t have parameters, no parentheses are used. Note that in Simula parameters of type ref(C) are said to be transmitted \ldblquote by reference\rdblquote  even when the simplest form of transmission is used, which is the same as Java\rquote s \ldblquote value\rdblquote  transmission of references.\par
+\par
+\b Type-casting and \ldblquote qua\rdblquote\par
+\b0 What in Java is written \ldblquote ((C)r).a\rdblquote  is in Simula written \ldblquote r qua C.a\rdblquote  (where C can only be a class). Note that no parentheses are needed.\par
+\par
+\b Co-routines and quasi-parallel execution\par
+\b0 As mentioned in the introduction, \ldblquote the code of\rdblquote  an object can run in quasi-parallel with the code of other objects.\par
+\par
+\par
+\b Visibility regulation: hidden and protected\par
+\b0 At the outset in 1967, Simula had no mechanisms for regulating the visibility of names. However, the need for this soon became clear, and around 1972 such a mechanism was added. It works so that a declaration local to a class can be declared \i protected, \i0 which means that it can only be accessed from inside an object of that class, and of subclasses. When it is declared \i protected\i0 , it can also be declared \i hidden \i0 either in the same class or in a subclass. This has the effect that it will not be visible in further subclasses.\par
+\par
+\b Simula has no \ldblquote most general class\rdblquote , like Java\rquote s \ldblquote Object\rdblquote\par
+\b0 There is nothing in Simula corresponding e.g. to the predefined class Object in Java. However, all classes declared without a superclass implicitly get some predefined procedures.\par
+\par
+\b Simula attributes and members\par
+\b0 In Simula, everything declared at the outermost level within a class (or a superclass) is said to be an \i attribute \i0 of that class or of an object of that class. The word \i member \i0 can definitely \i not \i0 be used with a meaning similar to that of \i attribute\i0 , but instead any object of a class or of a subclass is said to be a \i member of that class\i0 . Thus, a class corresponds to a \i set whose members are the objects of that class (including its subclasses)\i0 , and thus the word \i sub-class \i0 get its proper meaning.\par
+\par
+\b Simula\rquote s inner\par
+\b0 The executable code of a class can, by the keyword \ldblquote inner\rdblquote , indicate that the corresponding code of the actual subclass (if one exist) should be executed here.\par
+Assume we have the following classes:\par
+\par
+\b class A; begin <code A1>; inner; <code A2> end;\par
+A class B; begin <code B1>; inner; <code B2> end;\par
+B class C; begin <code C1>; inner; <code C2> end;\par
+When an object of class C is generated, the execution order of the code is as follows:\par
+<code A1>; <code B1>; <code C1>; <code C2>; <code B2>; <code A2>\par
+\par
+\b0\par
+}
+ 
